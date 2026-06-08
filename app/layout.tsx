@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Poppins, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -99,6 +100,21 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
+        {process.env.NODE_ENV === 'production' && (
+          <> 
+            <Script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-MPW0RYNDDY"
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MPW0RYNDDY');`}
+            </Script>
+          </>
+        )}
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
