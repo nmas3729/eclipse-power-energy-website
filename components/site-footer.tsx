@@ -98,6 +98,18 @@ export function SiteFooter() {
                 </a>
               </li>
             </ul>
+            <div className="mt-6">
+              <iframe
+                src="https://maps.google.com/maps?q=Sabina%20Plaza,%20Thohoyandou,%20Limpopo%200950&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="200"
+                style={{ border: 0, borderRadius: "0.5rem" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Google Maps Location"
+              ></iframe>
+            </div>
           </div>
 
           <div>
