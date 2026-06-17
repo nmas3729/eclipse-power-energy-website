@@ -3,15 +3,15 @@ import { Award, BatteryCharging, HardHat, Leaf, LifeBuoy, Settings } from "lucid
 const reasons = [
   {
     icon: Award,
-    title: "Quality Hanchu Products",
+    title: "Premium Hanchu Equipment",
     description:
-      "We use premium Hanchu equipment to deliver reliable solar power and long-lasting energy storage.",
+      "Eclipse installs genuine Hanchu equipment — delivering reliable solar power and long-lasting energy storage you can depend on.",
   },
   {
     icon: HardHat,
-    title: "Professional Installation",
+    title: "Eclipse-Certified Installation",
     description:
-      "Our certified team installs your system safely and efficiently for long-term performance.",
+      "Every system is installed by Eclipse's certified technicians — safely, efficiently, and built for long-term performance.",
   },
   {
     icon: Leaf,
@@ -23,7 +23,7 @@ const reasons = [
     icon: BatteryCharging,
     title: "Load Shedding Protection",
     description:
-      "Hanchu battery backup provides reliable power during outages and load-shedding events.",
+      "Eclipse-installed Hanchu battery backup provides reliable power during outages and load-shedding events.",
   },
   {
     icon: Settings,
@@ -49,8 +49,7 @@ export function WhyChooseUs() {
             The Smart Choice for Solar
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-            We are committed to delivering exceptional solar solutions with unmatched expertise and
-            premium Hanchu products.
+            Eclipse is committed to delivering exceptional solar solutions — professional installation services powered by premium Hanchu products.
           </p>
         </div>
 

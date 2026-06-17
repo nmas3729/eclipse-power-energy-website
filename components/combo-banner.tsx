@@ -20,8 +20,7 @@ export function ComboBanner() {
             Everything you need in one ready-to-install package
           </h2>
           <p className="text-lg leading-relaxed text-background/70 text-pretty">
-            Our pre-matched Hanchu combos take the guesswork out of going solar. Inverter, lithium
-            battery and panels engineered to work together for maximum uptime.
+            Eclipse supplies and installs pre-matched Hanchu combos — taking the guesswork out of going solar. Inverter, lithium battery and panels, professionally fitted by our team for maximum uptime.
           </p>
           <ul className="flex flex-col gap-3">
             {points.map((point) => (

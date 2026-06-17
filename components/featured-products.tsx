@@ -44,7 +44,7 @@ export function FeaturedProducts() {
             Featured Products
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-            Explore our range of premium Hanchu products and comprehensive solar solutions.
+            Eclipse supplies and installs premium Hanchu products — explore our range of solar solutions professionally delivered by our certified team.
           </p>
         </div>
 
