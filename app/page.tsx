@@ -1,39 +1,23 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { WhatsAppButton } from "@/components/whatsapp-button"
-import { FloatingQuoteButton } from "@/components/floating-quote-button"
+import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
-import { SystemSizeSelector } from "@/components/system-size-selector"
-import { FeaturedKits } from "@/components/featured-kits"
-import { DealsSection } from "@/components/deals-section"
 import { FeaturedProducts } from "@/components/featured-products"
-import { ProductCategories } from "@/components/product-categories"
-import { FinancingBenefits } from "@/components/financing-benefits"
-import { InstallationServices } from "@/components/installation-services"
-import { AboutPreview } from "@/components/about-preview"
-import { GallerySection } from "@/components/gallery-section"
-import { LeadGenSection } from "@/components/lead-gen-section"
+import { WhyChooseUs } from "@/components/why-choose-us"
+import { ComboBanner } from "@/components/combo-banner"
+import { QuoteForm } from "@/components/quote-form"
+import { SiteFooter } from "@/components/site-footer"
 
-export default function HomePage() {
+export default function Page() {
   return (
-    <>
-      <Navbar />
-      <main>
+    <div className="flex min-h-screen flex-col bg-background">
+      <SiteHeader />
+      <main className="flex-1">
         <Hero />
-        <SystemSizeSelector />
-        <FeaturedKits />
-        <DealsSection />
         <FeaturedProducts />
-        <ProductCategories />
-        <FinancingBenefits />
-        <InstallationServices />
-        <AboutPreview />
-        <GallerySection />
-        <LeadGenSection />
+        <WhyChooseUs />
+        <ComboBanner />
+        <QuoteForm />
       </main>
-      <Footer />
-      <WhatsAppButton />
-      <FloatingQuoteButton />
-    </>
+      <SiteFooter />
+    </div>
   )
 }
