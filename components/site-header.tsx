@@ -2,19 +2,23 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X, Phone } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button-variants"
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Solar Kits", href: "#products" },
-  { label: "Best Sellers", href: "#best-sellers" },
-  { label: "Components", href: "#components" },
+  { label: "Home", href: "/" },
+  { label: "Solar Kits", href: "/#products" },
+  { label: "Best Sellers", href: "/#best-sellers" },
+  { label: "Components", href: "/#components" },
+  { label: "Gallery", href: "/gallery" },
 ]
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -32,7 +36,7 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#home" className="flex items-center gap-2" aria-label="Eclipse Power Energy home">
+        <Link href="/" className="flex items-center gap-2" aria-label="Eclipse Power Energy home">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/eclipse-logo-hpsHZDCZ2de3fFjtWJBBVdsnulVruV.png"
             alt="Eclipse Power Energy logo"
@@ -57,19 +61,21 @@ export function SiteHeader() {
               Power Energy
             </span>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                scrolled ? "text-foreground/80" : "text-white/85 hover:text-secondary"
+                pathname === link.href
+                  ? "text-primary font-semibold"
+                  : scrolled ? "text-foreground/80" : "text-white/85 hover:text-secondary"
               }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <a
             href="#quote"
@@ -119,14 +125,16 @@ export function SiteHeader() {
         <div className="border-t border-border bg-background shadow-sm md:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4" aria-label="Mobile navigation">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-2 py-2 text-base font-medium text-foreground/80 hover:bg-muted hover:text-primary"
+                className={`rounded-md px-2 py-2 text-base font-medium hover:bg-muted hover:text-primary ${
+                  pathname === link.href ? "text-primary font-semibold" : "text-foreground/80"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a
               href="#quote"

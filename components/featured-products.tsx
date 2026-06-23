@@ -1,96 +1,80 @@
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-import { buttonVariants } from "@/components/ui/button-variants"
 
 const products = [
   {
-    title: "Hanchu Hybrid Inverters",
-    description:
-      "Reliable inverter technology to manage PV production, battery charging and backup power with precision.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hanchu%20Hybrid%20Inverters-2QNIsSiC6TVhk5wvmotDKkKFulWyZN.webp",
-    dark: true,
+    title: "Hanchu ESS 3.5kW 24V Off-Grid Inverter Combo",
+    category: "SPECIALS & COMBOS",
+    originalPrice: "R23,900.00",
+    price: "R19,900.00",
+    sale: true,
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3.5kW-Combo-300-x-300-px-l04NAbZmydNV96UjH5x73CowXXT4MX.png",
   },
   {
-    title: "Hanchu Lithium Batteries",
-    description:
-      "High-performance energy storage built for deep cycling, safety, and durable backup during load shedding.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lithium%20Battery-jWQWGlxDj9B3ZVc73M15pEwMRfnJyG.jpeg",
+    title: "Hanchu ESS 3kW 48V Off-Grid Inverter Combo",
+    category: "SPECIALS & COMBOS",
+    originalPrice: "R29,900.00",
+    price: "R26,900.00",
+    sale: true,
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3.5kW-Combo-300-x-300-px-l04NAbZmydNV96UjH5x73CowXXT4MX.png",
   },
   {
-    title: "Residential Solar Systems",
-    description:
-      "Tailored home packages engineered for consistent solar production and smarter energy use.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3.5kW-Combo-300-x-300-px-l04NAbZmydNV96UjH5x73CowXXT4MX.png",
+    title: "Hanchu ESS 6kW 48V Hybrid Inverter Combo",
+    category: "SPECIALS & COMBOS",
+    originalPrice: null,
+    price: "R45,900.00",
+    sale: false,
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12kW-Combo-300-x-300-px-ZrD1J9n2EZ7xV82l7DFy4ockogwjes.png",
   },
   {
-    title: "Commercial Energy Solutions",
-    description:
-      "Scalable systems designed to reduce operating costs and maintain power for business-critical loads.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/commercial-solar-MDpkCA0cHIBxFddk8DOYmlNC7nYH22.png",
+    title: "Hanchu ESS 12kW 48V Hybrid Inverter Combo",
+    category: "SPECIALS & COMBOS",
+    originalPrice: null,
+    price: "R89,900.00",
+    sale: false,
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12kW-Combo-300-x-300-px-ZrD1J9n2EZ7xV82l7DFy4ockogwjes.png",
   },
 ]
 
 export function FeaturedProducts() {
   return (
-    <section id="products" className="bg-muted/40 py-16 lg:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="font-semibold uppercase tracking-[0.18em] text-primary">Our Products</p>
-          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-foreground text-balance sm:text-4xl">
-            Featured Products
+    <section id="products" className="bg-background py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto text-center mb-12">
+          <h2 className="font-heading text-3xl font-normal uppercase tracking-wide text-foreground sm:text-4xl">
+            Specials & Combos
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-            Eclipse supplies and installs premium Hanchu products — explore our range of solar solutions professionally delivered by our certified team.
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {products.map((product) => (
+        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {products.map((product, index) => (
             <article
-              key={product.title}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-lg"
+              key={index}
+              className="group flex flex-col relative"
             >
-              <div
-                className={`flex aspect-square items-center justify-center overflow-hidden ${
-                  product.dark ? "bg-foreground" : "bg-muted"
-                }`}
-              >
+              <div className="relative flex aspect-square items-center justify-center overflow-hidden bg-white mb-4">
+                {product.sale && (
+                  <div className="absolute top-3 left-3 z-10 rounded-full bg-white px-3 py-1 text-xs font-medium text-foreground shadow-sm border border-border/40">
+                    Sale!
+                  </div>
+                )}
                 <Image
                   src={product.image || "/placeholder.svg"}
                   alt={product.title}
                   width={300}
                   height={300}
-                  className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                  className="h-full w-full object-contain p-4 mix-blend-multiply"
                 />
               </div>
-              <div className="flex flex-1 flex-col gap-3 p-5">
-                <h3 className="font-heading text-lg font-bold text-foreground">{product.title}</h3>
-                <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {product.description}
+              <div className="flex flex-1 flex-col gap-1.5 px-1">
+                <h3 className="font-medium text-[15px] leading-snug text-foreground group-hover:text-primary transition-colors">
+                  {product.title}
+                </h3>
+                <p className="text-[13px] text-muted-foreground uppercase tracking-wider">
+                  {product.category}
                 </p>
-                <a
-                  href="#quote"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-secondary-foreground"
-                >
-                  Request pricing
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <a
-            href="#quote"
-            className={buttonVariants({ size: "lg", className: "rounded-full font-semibold" })}
-          >
-            Get a Custom System Quote
-          </a>
         </div>
       </div>
     </section>

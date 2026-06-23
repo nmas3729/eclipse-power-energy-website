@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Poppins, Inter } from 'next/font/google'
 import './globals.css'
+import { WhatsAppButton } from '@/components/whatsapp-button'
 
 const poppins = Poppins({
   variable: '--font-heading',
@@ -42,6 +43,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased">
         {children}
+        <WhatsAppButton />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
