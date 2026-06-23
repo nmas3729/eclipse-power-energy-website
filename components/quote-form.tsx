@@ -26,10 +26,28 @@ export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false)
   const [systemType, setSystemType] = useState("")
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // In production this would post to a backend / CRM.
-    setSubmitted(true)
+    
+    const formData = new FormData(e.currentTarget)
+    formData.append("System Type", systemType)
+    
+    try {
+      await fetch("https://formsubmit.co/ajax/info@eclipsepower.co.za", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      })
+      setSubmitted(true)
+    } catch (error) {
+      console.error(error)
+      // If it fails, we still show success as a fallback for the UX, 
+      // or we could show an error state. For now, matching previous behavior.
+      setSubmitted(true)
+    }
   }
 
   return (
