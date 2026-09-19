@@ -131,14 +131,14 @@ export function SiteFooter() {
         <div className="mt-10 border-t border-border pt-6 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Eclipse Power Energy Pty Ltd. All rights reserved.</p>
           <p className="mt-3">
-            Powered by{' '}
+            Design &amp; hosted by{' '}
             <a
-              href="https://webcraft.nmas.co.za"
+              href="https://sihleb.co.za/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary transition-colors hover:underline"
             >
-              NMAS WebCraft
+              SihleB Digital Studio
             </a>
           </p>
         </div>
